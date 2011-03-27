@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Destroy The Stars</title>
+<link rel="StyleSheet" href="game.css" type="text/css" >
+<script type="text/javascript" src="jquery-1.5.1.min.js" > </script>
+<script type="text/javascript" src="math.js" > </script>
+<script type="text/javascript" src="planet.js" > </script>
+<script type="text/javascript" src="particle.js" > </script>
+<script type="text/javascript" src="game.js" > </script>
+<script type="text/javascript">
+
+
+/* Scene */
+function Scene() {
+    this.tick = 0;
+    this.particleStreams = [
+        //new ParticleStream(this, 0, 300, 0, 50, [0, 32, 100], 50),
+        new ParticleStream(this, 900, 600, 0, -50, [0, 100, 0], 50)];
+    
+    var sun = new Planet(480, 350, 10000, 50);
+    var earth = new Planet(480, 25, 2500, 25);
+    earth.isStar = false;
+    earth.r = 0;
+    earth.g = 128;
+    earth.b = 200;
+    this.planets = [earth, sun]
+}
+
+</script>
+</head>
+
+<body onload="start()">
+<h1>Destroy the Stars :: Level 1</h1>
+<h3 id="win" style="display: none;">Good job! Proceed to <a href="level2.html">level 2</a></h3>
+<canvas id="game-canvas" width="960" height="600" >
+
+</canvas>
+</body>
+
+</html>
